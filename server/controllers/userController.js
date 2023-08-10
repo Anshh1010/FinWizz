@@ -5,7 +5,7 @@
 //         hour12: true,
 //     });
 // };
-const Users = require("")
+const User = require('../models/schema')
 
 function generateOTP() {
     const digits = '0123456789';
@@ -87,9 +87,9 @@ exports.verifyOTP = async(req, res) => {
         user.otpExpiration = undefined;
 
         user = await user.save();
-        const token = jwt.sign({ emailId: user.emailId, badgeID: user.badgeID }, // Include badgeID in the payload
+        const token = jwt.sign({ emailId: user.emailId, badgeID: user.badgeID }, 
             secretKey, {
-                expiresIn: '1d', // Set the expiration time for the token
+                expiresIn: '1d', 
             }
         );
         user.jwtToken = token;
