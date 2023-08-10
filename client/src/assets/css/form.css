@@ -1,0 +1,142 @@
+form{
+    display: block;
+  }
+  
+  .modal-window input, .modal-window2 input{
+    border-radius: 15px;
+  }
+  
+  .modal-window2 label{
+    position: relative;
+    left: 10px;
+  }
+  .modal-window label{
+    position: relative;
+    left: 10px;
+  }
+  
+  .modal-window .btn-sbmt, .modal-window2 .btn-sbmt{
+    border: 1px solid black;
+    position: relative;
+    border-radius: 30px;
+  }
+  
+  .modal-window .btn-sbmt{
+    margin-top: 40px;
+  }
+  
+  .modal-window2 .btn-sbmt{
+    margin-top: 20px;
+  }
+  
+  .loginbtn-loader{
+    display: none;
+    width: 100px;
+    position: absolute;
+    top: 52%;
+    left: 88%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-sbmt:focus .loginbtn-loader{
+    display: block;
+  }
+
+  input {
+    margin: 1.2rem 0;
+  }
+  
+  .form-text {
+    display: block;
+    margin-top: 0.3rem;
+    color: #888;
+  }
+  
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='date'],
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+  }
+  
+  input[type='submit'],
+  button {
+    font: inherit;
+  }
+  
+  .form-group {
+    margin: 1.2rem 0;
+  }
+
+  .form-group label{
+    float: left;
+    margin-bottom: 10px;
+    position: relative;
+    left: 3px;
+  }
+  
+  .form-group input {
+    margin: 0.2rem 0;
+  }
+  
+  .form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    overflow: hidden;
+    padding: 0 2rem;
+  }
+  
+  .form-container h1,
+  h2,
+  h3 {
+    text-align: center;
+  }
+  
+  .btn-sbmt{
+    border-radius: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+    outline: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 250px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    transition-duration: 0.25s;
+    font-weight: 400;
+    border-radius: 30px;
+  }
+
+  .btn-sbmt:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .form-notifs .row{
+   margin: 5px 0;
+  }
+
+  .form-notifs label{
+    float: left;
+    margin-bottom: 5px;
+  }
+
+  .form-duty .row{
+    margin: 5px 0;
+   }
+ 
+  .form-duty label{
+    float: left !important;
+    margin-bottom: 5px;
+  }

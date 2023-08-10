@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+@font-face {
+    font-family: ananda;
+    src: url("../fonts/ananda.ttf");
+  } 
+
+
+.contact-inner{
+    background: #242333;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
+
+.hello-cons{
+    position: relative;
+    top: -90px;
+}
+
+.logo-contact{
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.contact-left{
+    text-align: center;
+}
+
+.logotext{
+    font-family: ananda !important;
+    color: whitesmoke;
+    font-size: 100px;
+    letter-spacing: 2px;
+}
+
+.contact-left-text{
+    font-family: 'Poppins', sans-serif;
+    border-radius: 80px 30px 80px 30px;
+    color: white;
+    padding: 30px;
+    width: 100%;
+    letter-spacing: 1px;
+    font-size: 1em;
+}
+.contact-right{
+    padding-left: 175px;
+    margin: auto 0;
+    text-align: left;
+}
+
+.contact-right-links .con-link{
+    border-radius: 30px;
+    padding: 10px 20px 10px 10px;
+    background-color: white;
+    color: #9d73c2;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.contact-right-links a{
+    line-height: 4;
+    text-align: left;
+    text-decoration: none;
+}
+
+.social-media-buttons-contact li{
+    color: white;
+    margin: 16px 20px 0 20px;
+}
+
+.contact-right-links i{
+    color: #9d73c2;
+    margin-right: 5px;
+}
+
+
+.social-media-buttons-contact p{
+    color: white;
+    margin: 20px 0 0 0;
+    font-family: Outfit;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+}
+
+.contact-btns{
+    padding: 8px 20px;
+    border: none;
+    border-radius: 30px;
+    color: #242333;
+}
+
+.contact-btns1{
+    background-color: #10b0d3;
+    color: white;
+}
+
+.contact-right-heading{
+    letter-spacing: 1px;
+    color: white;
+    font-family: Outfit;
+    font-weight: 500;
+    font-size: 2em;
+}
+
+.digitalIndia{
+    width: 150px;
+}
+
+.contact-linker{
+    margin: 20px 0px 20px 0px;
+    color: white;
+}
+
+.contact-linker-cont a{
+    margin-top: 50px;
+}
+.contact-linker-cont i{
+    margin-right: 5px;
+    background:linear-gradient(90deg, #4d4970 10%, #10b0d3 90%);
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.contact-linker-cont a:hover{
+    color: white;
+}
