@@ -208,3 +208,36 @@ exports.suggestions = async(req, res) => {
         res.status(500).json({error: 'Error Updating Information'});
     }
 }
+
+
+exports.getPerformance = async(req, res) => {
+    const { stockName } = req.params;
+    console.log(stockName);
+    try {
+
+        // Start the Python script with the stock's name as an argument
+        console.log("Going")
+        const pythonScript = spawn('python3', ['/Users/anshhchaturvedi/Desktop/FinWizz/server/python/getPlots.py', stockName]);
+        console.log("spawn done")
+        pythonScript.stdout.on('data', (data) => {
+            console.log(`Python script output: ${data}`);
+        });
+
+        pythonScript.stderr.on('data', (data) => {
+            console.error(`Python script error: ${data}`);
+        });
+
+        pythonScript.on('close', (code) => {
+            console.log(`Python script exited with code ${code}`);
+
+            const plotPaths = [
+                'plots/combined_plot.png'
+
+            ];
+
+            res.json({ plotPaths });
+        });
+    } catch (error) {
+        console.error(`Error in try-catch block: ${error}`);
+    }
+};
