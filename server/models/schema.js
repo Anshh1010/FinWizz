@@ -21,7 +21,7 @@ const userSchema = new Schema({
     },
     firstName: {
         type: String,
-        required: 'Name cannot be empty',
+        required: 'First Name cannot be empty',
     },
     surname: {
         type: String,
@@ -29,6 +29,7 @@ const userSchema = new Schema({
     },
     profilePic: {
         type: String,
+        required: 'Last Name cannot be empty',
     },
     phoneNo: {
         type: String,
