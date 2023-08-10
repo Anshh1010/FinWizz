@@ -13,7 +13,6 @@ const userSchema = new Schema({
     },
     otp: {
         type: String,
-        required: false,
     },
     otpExpiration: {
         type: Date,
@@ -57,13 +56,19 @@ const userSchema = new Schema({
         default: 0
     },
     maritalStatus:{
-        type: String,
+        type: Boolean,
     },
     number_of_children: {
         type: Number,
         default: 0
     },
     age: {
+        type: Number,
+    },
+    totalSaving: {
+        type: Number,
+    },
+    risk_taking: {
         type: Number,
     },
     stocks: [{
