@@ -241,3 +241,28 @@ exports.getPerformance = async(req, res) => {
         console.error(`Error in try-catch block: ${error}`);
     }
 };
+
+exports.getRisk = async(req, res) => {
+    res.json({
+        'ITC': 0.601,
+        'TATAMOTORS': 2.099,
+        'IRCTC': 0.283,
+        'INFOSYS': 0.404,
+        'RELIANCE INDUSTRIES': 0.885,
+        'ADANI PORTS': 1.293,
+        'TATA STEEL': 1.614,
+        'LARSEN AND TOUBRO': 1.062,
+        'INDRAPRASTHA GAS LIMITED': 0.514,
+        'VARUN BEVERAGES LIMITED': 0.933,
+        'HAVELLS': 0.624,
+        'SAGAR CEMENTS': 0.380,
+        'DCM SHRIRAM INDUSTRIES LIMITED': 0.956,
+        'ZEN TECHNOLOGIES': 1.145,
+        'DISA INDIA LIMITED': 1.052,
+        'PIX TRANSMISSIONS': 1.634,
+        'AXTEL': 0.671,
+        'YAMUNA SYNDICATE LIMITED': 1.015,
+        'INDIAN RAILWAY FINANCE CORPORATION': 0.302,
+        'GLAND PHARMACEUTICALS': 0.642
+    })
+}
