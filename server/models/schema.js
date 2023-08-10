@@ -29,7 +29,6 @@ const userSchema = new Schema({
     },
     profilePic: {
         type: String,
-        required: 'Photo cannot be empty',
     },
     phoneNo: {
         type: String,
@@ -41,11 +40,11 @@ const userSchema = new Schema({
     },
     income: {
         type: Number,
-        required: 'Cannnot be empty'
+        required: 'Cannot be empty'
     },
     expenses: {
         type:Number,
-        required: 'Cannnot be empty',
+        required: 'Cannot be empty',
     },
     debt: {
         type:Number,
@@ -79,6 +78,8 @@ const userSchema = new Schema({
             type: Number
         }
     }],
+
+    
 });
 
 module.exports = mongoose.model('User', userSchema);
