@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 // const notFoundMiddleware = require('../server/middleware/not-found');
 
-// const userRoutes = require('../server/routes/userRoutes');
+const userRoutes = require('../server/routes/userRoutes');
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(morgan('dev'));
 
-// app.use('/v1/user', userRoutes);
+app.use('/v1/user', userRoutes);
 
 // app.use(notFoundMiddleware)
 

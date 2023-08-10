@@ -107,28 +107,20 @@ exports.signup = async(req, res) => {
         const { emailId , password, password0 } = req.body;
 
         const admin = await User.findOne({ emailId:emailId });
-        if(!admin){
+        if(admin){
             return res.status(250).json({error:'User with same email id already exists'});
         }
-        if(password!=password0){
+        if(password!==password0){
             return res.status(250).json({error:'Passwords do not match'});
         }
-        const {firstName, surname, phoneNo, gender, income, expenses, debt, current_savings, investment_Returns, maritalStatus, number_of_children, age} = req.body;
+        const {firstName, surname, phoneNo, gender} = req.body;
         const user = new User({
             emailId:emailId,
             password:password,
             firstName:firstName,
             surname:surname,
             phoneNo:phoneNo,
-            gender:gender,
-            income:income,
-            expenses:expenses,
-            debt:debt,
-            current_savings:current_savings,
-            investment_Returns:investment_Returns,
-            number_of_children:number_of_children,
-            maritalStatus:maritalStatus,
-            age:age
+            gender:gender
         });
         await user.save();
         res.json({message:'User added successfully',user});

@@ -27,12 +27,8 @@ const userSchema = new Schema({
         type: String,
         required: 'Name cannot be empty',
     },
-    profilePic: {
-        type: String,
-        required: 'Last Name cannot be empty',
-    },
     phoneNo: {
-        type: String,
+        type: Number,
         required: 'PhoneNo cannot be empty'
     },
     gender: {
@@ -41,11 +37,13 @@ const userSchema = new Schema({
     },
     income: {
         type: Number,
-        required: 'Cannot be empty'
+
     },
     expenses: {
         type:Number,
-        required: 'Cannot be empty',
+    },
+    profilePic: {
+        type: String,
     },
     debt: {
         type:Number,
