@@ -64,7 +64,7 @@ exports.loginUser = async(req, res) => {
         user = await user.save();
 
         // Return the token and badgeID to the client
-        res.json({ message: 'OTP sent successfully', emailId: user.emailId });
+        res.json({ message: 'OTP sent successfully', emailId: user.emailId, name : user.firstName });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Server error' });
@@ -118,7 +118,7 @@ exports.signup = async(req, res) => {
             gender:gender
         });
         await user.save();
-        res.json({message:'User added successfully',user});
+        res.json({message:'User added successfully', name : user.firstName});
     } catch(error){
         console.error(error);
         res.status(500).json({error: 'Error Signing up'});
@@ -174,3 +174,37 @@ exports.risk = async(req, res) => {
         res.status(500).json({error: 'Error Updating Information'});
     }
 };
+
+exports.suggestions = async(req, res) => {
+    try{
+        const {emailId} = req.params;
+        const user = await User.findOne({ emailId:emailId });
+       
+        if(!user){
+            return res.status(250).json({error:'User with same email id already exists'});
+        }
+
+        
+        if(user.risk_taking >= 15) 
+        {
+           user.choice = "Stocks"
+        }
+        else if(user.risk_taking >= 10 && user.risk_taking <15) 
+        {
+            user.choice = "Mutual Funds";
+        }
+        else if(user.risk_taking >= 5 && user.risk_taking <10) 
+        {
+            user.choice = "Bonds";
+        }
+        else if(user.risk_taking >= 5 && user.risk_taking <10) 
+        {
+            user.choice = "ETF";
+        }
+        await user.save()
+        res.json({message:'Risk'});
+    }catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'Error Updating Information'});
+    }
+}

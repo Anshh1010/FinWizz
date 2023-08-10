@@ -7,6 +7,7 @@ router.post('/verify-otp', userController.verifyOTP);
 router.post('/signUp', userController.signup);
 router.patch('/afterSignUp/:emailId', userController.updateUserAfterSignup);
 router.patch('/risk/:emailId', userController.risk);
+router.get('/suggestions/:emailId', userController.suggestions);
 // router.get('/:badgeID', userController.getUserByBadgeID);
 // router.get('/profile/:badgeID', userController.getProfileOfUserByBadgeID);
 

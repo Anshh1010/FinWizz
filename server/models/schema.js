@@ -71,7 +71,32 @@ const userSchema = new Schema({
     risk_taking: {
         type: Number,
     },
+    choice : {
+        type: String
+    },
     stocks: [{
+        stocks_name: {
+            type: String,
+        },
+        priceBought: {
+            type: Number,
+        },
+        quantity: {
+            type: Number
+        }
+    }],
+    mutual_funds: [{
+        stocks_name: {
+            type: String,
+        },
+        priceBought: {
+            type: Number,
+        },
+        quantity: {
+            type: Number
+        }
+    }],
+    etf: [{
         stocks_name: {
             type: String,
         },
