@@ -146,7 +146,7 @@ exports.updateUserAfterSignup = async(req, res) => {
         user.totalSaving = (income - expenses - debt) + current_savings + investment_Returns 
 
         await user.save();
-        res.json({message:'User information updated successfully',user});
+        res.json({message:'User information updated successfully',emailId: user.emailId});
     } catch(error){
         console.error(error);
         res.status(500).json({error: 'Error Updating Information'});
@@ -210,6 +210,32 @@ exports.suggestions = async(req, res) => {
 }
 
 
+exports.addStocks = async(req, res) => {
+    try {
+        const emailId = req.params.emailId;
+        const { stocks_name, priceBought, quantity } = req.body;
+    
+        const user = await User.findOne({ emailId });
+
+        if (!emailId) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        const stock = {
+            stock: {
+                stocks_name:stocks_name,
+                priceBought: priceBought,
+                quantity: quantity,
+            },
+        };
+        user.stocks.push(stock);
+        await user.save();
+
+        return { success: true, message: 'Stock investment added successfully' };
+    } catch (error) {
+        console.error(error);
+        return { success: false, message: 'Error adding stock investment' };
+    }
+};
 exports.getPerformance = async(req, res) => {
     const { stockName } = req.params;
     console.log(stockName);
