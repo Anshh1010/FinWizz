@@ -11,6 +11,7 @@ router.get('/suggestions/:emailId', userController.suggestions);
 router.post('/addStocks/:emailId', userController.addStocks);
 router.get('/get-Performance/:stockName', userController.getPerformance);
 router.get('/getRisk', userController.getRisk)
+router.get('/enterRisk', userController.enterRisk)
 // router.get('/:badgeID', userController.getUserByBadgeID);
 // router.get('/profile/:badgeID', userController.getProfileOfUserByBadgeID);
 
