@@ -4,11 +4,14 @@ import '../../assets/css/modal.css';
 import '../../assets/css/form.css';
 import Loader from '../../assets/images/Loader123.gif';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import AdminEmailContext from '../context/adminContext';
 
 const AddUser = () => {
 
   const [income,setIncome] =useState('');
   const [debt,setDebt] =useState('');
+  const [expenses,setExpenses] =useState('');
   const [currentsavings,setCurrentSavings] =useState('');
   const [investementr,setInvestmentr] =useState('');
   const [maritalstatus,setMaritalStatus] =useState('');
@@ -17,40 +20,48 @@ const AddUser = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const history = useNavigate(); 
+  const { AdminEmail } = useContext(AdminEmailContext);
 
 
-    
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+  },
+};
   const AddUser = async (e) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
 
-    try {
-      const apiUrl = 'https://violet-kitten-toga.cyclic.cloud/v1/admin/login';
+    const data = {
+        income: income, 
+        expenses:expenses, 
+        debt: debt, 
+        current_savings: currentsavings, 
+        investment_Returns:investementr,
+        maritalStatus:maritalstatus, 
+        number_of_children:numchild, 
+        age:age,
+        };
 
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ income,debt,currentsavings,investementr,maritalstatus,numchild,age }),
-      });
-
-      setIsLoading(false);
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        setError(errorData.error || 'Add User failed.');
-        return;
-      }
-
-      const data = await response.json();
-
-      history('/dashboard/home');
-    } catch (error) {
-      setError('An error occurred during adding user. Please try again later.');
-      setIsLoading(false);
-    }
+        const url = `http://localhost:8000/v1/user/afterSignUp/${AdminEmail}`;
+        axios.post(url, data, config)
+       .then((response) => {
+         console.log('Data sent successfully:', response.data);
+         Swal.fire({
+           icon: (response.data.error) ? 'error' : 'success',
+           title: (response.data.error) ? response.data.error : response.data.message,
+           showConfirmButton: false,
+           timer:1500,
+         }
+         )
+        setIsLoading(false);
+        {(response.data.error) ? <></> : history('dashboard/home')}
+       })
+       .catch((error) => {
+         console.error('Error sending data:', error);
+         setIsLoading(false);
+       })
   };
 
   
@@ -72,6 +83,17 @@ const AddUser = () => {
                 required
                 value={income}
                 onChange={(e) => setIncome(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="expenses">Expenses</label>
+              <input
+                type="number"
+                name="expenses"
+                autoComplete="off"
+                required
+                value={expenses}
+                onChange={(e) => setExpenses(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -131,7 +153,7 @@ const AddUser = () => {
             <div className="form-group">
               <label htmlFor="age">Age</label>
               <input
-                type="age"
+                type="number"
                 name="age"
                 autoComplete="off"
                 required
@@ -143,10 +165,10 @@ const AddUser = () => {
               <button type="submit" value="SignUp" className="btn-sbmt" disabled={isLoading}>
                 {isLoading ? (
                   <>
-                    <img src={Loader} className="loginbtn-loader" alt="Loader" /> Signing In....
+                    <img src={Loader} className="loginbtn-loader" alt="Loader" /> Submitting......
                   </>
                 ) : (
-                  'Add User'
+                  'Submit'
                 )}
               </button>
             </div>

@@ -57,6 +57,7 @@ form{
   input[type='password'],
   input[type='date'],
   input[type='tel'],
+  input[type='number'],
   select,
   textarea {
     display: block;

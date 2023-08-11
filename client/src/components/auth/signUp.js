@@ -4,8 +4,9 @@ import '../../assets/css/modal.css';
 import '../../assets/css/form.css';
 import Loader from '../../assets/images/Loader123.gif';
 import Swal from 'sweetalert2';
-import AdminEmail from '../context/adminContext';
+import AdminEmailContext from '../context/adminContext';
 import AdminNameContext from '../context/AdminNameContext';
+import axios from 'axios';
 
 const SignUp = () => {
 
@@ -19,7 +20,7 @@ const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const history = useNavigate(); 
-  const {setAdminEmail}=useContext(AdminEmail);
+  const {setAdminEmail}=useContext(AdminEmailContext);
   const {setAdminName}=useContext(AdminNameContext);
 
   const handleEmailChange = (e) => {
@@ -30,44 +31,54 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
-    
-  const SubmitForm = async (e) => {
-    e.preventDefault();
-    setError('');
-    setIsLoading(true);
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+  },
+};
 
-    try {
-      const apiUrl = 'https://violet-kitten-toga.cyclic.cloud/v1/admin/login';
+const onSubmit = (e) => {
+  e.preventDefault();
+  setError('');
+  setIsLoading(true);
+ 
+     const data = {
+       emailId: emailId,
+       password: password,
+       password0: cpassword,
+       firstName:firstname ,
+       surname: surname,
+       phoneNo: pnumber,
+       gender:gender,
+       };
+ 
+       console.log(data)
+     const url = `http://localhost:8000/v1/user/signUp`;
+     axios.post(url, data, config)
+       .then((response) => {
+         console.log('Data sent successfully:', response.data);
+         Swal.fire({
+           icon: (response.data.error) ? 'error' : 'success',
+           title: (response.data.error) ? response.data.error : response.data.message,
+           showConfirmButton: false,
+           timer:1500,
+         }
+         )
+        setIsLoading(false);
 
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ emailId, password, cpassword, firstname, surname, pnumber, gender }),
-      });
+        setAdminEmail(data.emailId);
+        setAdminName(data.name);
+        console.log(data.message);
+        localStorage.setItem('AdminEmail',data.AdminEmail);
+        localStorage.setItem('firstName',data.name);
 
-      setIsLoading(false);
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        setError(errorData.error || 'Sign Up failed.');
-        return;
-      }
-
-      const data = await response.json();
-      setAdminEmail(data.emailId);
-      setAdminName(data.name);
-      localStorage.setItem('AdminEmail',data.AdminEmail);
-      localStorage.setItem('name',data.firstname);
-
-      history('/dashboard/home');
-    } catch (error) {
-      setError('An error occurred during sign up. Please try again later.');
-      setIsLoading(false);
-    }
-  };
-
+        {(response.data.error) ? <></> : history('dashboard/home')}
+       })
+       .catch((error) => {
+         console.error('Error sending data:', error);
+         setIsLoading(false);
+       });
+   };
   
   return (
     <>
@@ -77,7 +88,7 @@ const SignUp = () => {
             X
           </a>
           <h1>SIGN UP</h1>
-          <form onSubmit={SubmitForm}>
+          <form>
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -100,13 +111,15 @@ const SignUp = () => {
                 onChange={handlePasswordChange}
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="cpassword">Confirm Password</label>
               <input
                 type="password" 
                 name="cpassword"
-                value={cpassword} 
                 autoComplete="off"
+                required
+                value={cpassword}
                 onChange={(e) => setCpassword(e.target.value)}
               />
             </div>
@@ -155,7 +168,7 @@ const SignUp = () => {
               />
             </div>
             <div className="btn-sbmt-cont">
-              <button type="submit" value="SignUp" className="btn-sbmt" disabled={isLoading}>
+              <button type="submit" value="SignUp" className="btn-sbmt" disabled={isLoading} onClick={onSubmit}>
                 {isLoading ? (
                   <>
                     <img src={Loader} className="loginbtn-loader" alt="Loader" /> Signing In....

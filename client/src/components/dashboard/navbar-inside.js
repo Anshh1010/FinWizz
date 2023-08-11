@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/navbar.css';
-import AdminIdContext from "../context/adminContext";
+import AdminEmailContext from "../context/adminContext";
 import AdminNameContext from '../context/AdminNameContext';
 import userAvatar from '../../assets/logos/user-avatar.png';
 
 const NavbarInside = () => {
-  const { setAdminId } = useContext(AdminIdContext);
+  const { setAdminEmail } = useContext(AdminEmailContext);
   const { firstName } = useContext(AdminNameContext);
   const history = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('adminID');
-    setAdminId(null);
+    localStorage.removeItem('AdminEmail');
+    setAdminEmail(null);
     history('/');
   };
 

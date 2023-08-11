@@ -4,19 +4,19 @@ import '../../assets/css/modal.css';
 import '../../assets/css/form.css';
 import axios from 'axios';
 import Loader from '../../assets/images/Loader123.gif';
-import AdminEmail from '../context/adminContext';
+import AdminEmailContext from '../context/adminContext';
 import AdminNameContext from '../context/AdminNameContext';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-  const { AdminEmail } = useContext(AdminEmail);
+  const { AdminEmail } = useContext(AdminEmailContext);
   const [emailId, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [otp, setOTP] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const history = useNavigate(); 
-  const {setAdminEmail}=useContext(AdminEmail);
+  const {setAdminEmail}=useContext(AdminEmailContext);
   const {setAdminName}=useContext(AdminNameContext);
 
   const handleEmailChange = (e) => {
@@ -38,7 +38,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const apiUrl = 'https://violet-kitten-toga.cyclic.cloud/v1/admin/login';
+      const apiUrl = 'http://localhost:8000/v1/user/login';
 
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -57,10 +57,11 @@ const Login = () => {
       }
 
       const data = await response.json();
+      console.log(data);
       setAdminEmail(data.emailId);
       setAdminName(data.name);
-      localStorage.setItem('AdminEmail',data.AdminEmail);
-      localStorage.setItem('name',data.firstname);
+      localStorage.setItem('AdminEmail',data.emailId);
+      localStorage.setItem('firstName',data.firstName);
 
     } catch (error) {
       setError('An error occurred during login. Please try again later.');
@@ -82,7 +83,7 @@ const Login = () => {
       otp:otp.toString(),
     };
     console.log(data)
-    const url_post = `https://violet-kitten-toga.cyclic.cloud/v1/admin/verify-otp`;
+    const url_post = `http://localhost:8000/v1/user/verify-otp`;
 
     axios.post(url_post, data, config)
     .then((response) => {

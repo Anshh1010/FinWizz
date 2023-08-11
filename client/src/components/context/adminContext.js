@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const AdminEmail = createContext(false);
+const AdminEmailContext = createContext(false);
 
-export default AdminEmail;
+export default AdminEmailContext;

@@ -1,5 +1,5 @@
 import '../../assets/css/navbar.css';
-import AdminIdContext from "../context/adminContext";
+import AdminEmailContext from "../context/adminContext";
 import AdminNameContext from '../context/AdminNameContext';
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import userAvatar from '../../assets/logos/user-avatar.png';
 
 const NavbarInside = () => {
 
-  const { adminId } = useContext(AdminIdContext);
+  
   const { firstName } = useContext(AdminNameContext);
 
   return (
