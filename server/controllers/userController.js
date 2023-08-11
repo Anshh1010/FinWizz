@@ -269,7 +269,7 @@ exports.getPerformance = async(req, res) => {
 };
 
 exports.getRisk = async(req, res) => {
-    const risk = req.body;
+    const {risk} = req.body;
     if (risk > 15) {
         data = {
             'IRCTC': 0.283,

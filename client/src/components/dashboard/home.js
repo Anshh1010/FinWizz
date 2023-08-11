@@ -22,6 +22,7 @@ const Home = () => {
       <div className='dash'>
           
           <Link to="/dashboard/risk">Risk</Link>
+          <Link to="/dashboard/stocks">Stocks</Link>
           <a href={`${URL}/home/#adduser`}>
             Add User
           </a>
