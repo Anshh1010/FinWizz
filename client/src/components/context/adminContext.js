@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const AdminIdContext = createContext(false);
+const AdminEmail = createContext(false);
 
-export default AdminIdContext;
+export default AdminEmail;

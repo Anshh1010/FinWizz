@@ -94,7 +94,7 @@
     transition: transform calc(var(--d) * 2) var(--e);
   }
   .cardcard:nth-child(1):before {
-    background-image: url('../images/scene1.jfif');
+    background-image: url('../images/scene1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
   }

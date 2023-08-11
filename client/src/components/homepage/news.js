@@ -29,20 +29,20 @@ const News = () => {
             <div className="page-content col-sm-11">
                 <div className="cardcard" data-aos="fade-down">
                     <div className="content">
-                    <h2 className="title">Police Sammelan 2023</h2>
-                    <p className="copy" style={{textAlign:""}}>On August 8th, an important event for police officials to meet and discuss crucial matters. Food will be served during the gathering.</p>
+                    <h2 className="title">Stock Market</h2>
+                    <p className="copy" style={{textAlign:""}}>Nifty today ended 89 points lower near the 19,550-mark to form a small negative candle with minor upper and lower shadows on the daily chart. </p>
                     </div>
                 </div>
                 <div className="cardcard" data-aos="fade-up">
                     <div className="content">
-                    <h2 className="title">Swatantrata Diwas Tyaari</h2>
-                    <p className="copy" style={{textAlign:""}}>On the occasion of Independence Day, more than 10,000 police personnel would be deployed in different roles across the Red Fort and other landmarks.</p>
+                    <h2 className="title">Home Loan EMI</h2>
+                    <p className="copy" style={{textAlign:""}}>Banks are increasing Home Loan EMI tenors without even asking borrowers.</p>
                     </div>
                 </div>
                 <div className="cardcard" data-aos="fade-down">
                     <div className="content">
-                    <h2 className="title">Collect ID Cards</h2>
-                    <p className="copy" style={{textAlign:""}}>Please collect your new ID badges from the designated office by 07 August 2023. ID Bagde  is mandatory for security and identification purposes.</p>
+                    <h2 className="title">EPFO</h2>
+                    <p className="copy" style={{textAlign:""}}>The Employees Provident Fund Organisation has invested Rs 1.88 lakh crore in exchange traded funds (ETFs) in the last five fiscal years, starting from 2018-19.</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,8 @@
 import '../../assets/css/navbar.css';
 import Login from '../auth/login.js';
+import SignUp from '../auth/signUp.js';
+import image1 from '../../assets/logos/logo1.png';
+import AddUser from '../auth/addUser';
 
 const NavbarMain = () => {
   let URL = 'http://localhost:3000';
@@ -9,7 +12,8 @@ const NavbarMain = () => {
         <div className='nav-header'>
           <div className='nav-title'>
             <span className='nav-title-inner'>
-            AaarHak
+            <img src={image1} />
+            {/* FinWizz */}
             </span>
           </div>
         </div>
@@ -27,10 +31,18 @@ const NavbarMain = () => {
           </a>
           <a href={`${URL}/#about`}>ABOUT</a>
           <a href={`${URL}/#contact`}>CONTACT</a>
+          <a href={`${URL}/#signup`} className='signupbtn'>
+            SIGN UP
+          </a>
+          <SignUp />
           <a href={`${URL}/#login`} className='loginbtn'>
             LOGIN
           </a>
           <Login />
+          {/* <a href={`${URL}/#adduser`} className='loginbtn'>
+            ADD USER
+          </a>
+          <AddUser /> */}
         </div>
       </nav>
     </>

@@ -4,6 +4,8 @@ import About from "./about";
 import News from "./news";
 import Testimonials from "./testimonials";
 import ContactUs from "./contactus";
+import Home from "../dashboard/home";
+
 
 const MainHomepage = () => {
   return (
@@ -14,6 +16,8 @@ const MainHomepage = () => {
         <News />
         <Testimonials />
         <ContactUs />
+        {/* <Home /> */}
+        
     </>
   );
 };

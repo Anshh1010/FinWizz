@@ -1,9 +1,9 @@
 
 import React, { useEffect } from 'react';
 import '../../assets/css/about.css';
-import logoabt1 from '../../assets/images/location.gif';
-import logoabt2 from '../../assets/images/key.gif';
-import logoabt3 from '../../assets/images/lock.gif';
+import logoabt1 from '../../assets/images/risk.gif';
+import logoabt4 from '../../assets/images/stock.gif';
+import logoabt5 from '../../assets/images/plan.gif';
 import AOS from 'aos';
 
 const About = () => {
@@ -25,38 +25,36 @@ const About = () => {
         <div className='about-inner row'>
           <div className='abouter about-1 col-sm-4' data-aos='zoom-in-right'>
             <div className='about-text'>
-              <h2><img src={logoabt1} className='about-img'></img> <span style={{marginLeft: '13px'}}>Real-time</span> <br /> <span style={{marginLeft:'70px'}}>location tracking</span></h2> 
+              <h2><img src={logoabt1} className='about-img'></img> <span style={{marginLeft: '13px'}}>Risk</span> <br /> <span style={{marginLeft:'70px'}}>Management</span></h2> 
               <p>
-              Aarakshak employs real-time location tracking for police 
-              officers stationed at various locations, enabling admins 
-              to monitor officers on duty and ensuring prompt responses 
-              to emergencies.
+              We assess your insurance requirements and 
+              offer advice on numerous coverage options, including health, life, disability, 
+              and long-term care insurance and help you identify possible threats and 
+              formulate defenses to safeguard your assets and yourself.
               </p>
             </div>
           </div>
 
           <div className='abouter about-2 col-sm-4' data-aos='zoom-in-down'>
             <div className='about-text'>
-              <h2><img src={logoabt2} className='about-img'></img> <span style={{marginLeft: '12px'}}>Authentication &</span> <span style={{marginLeft:'69px'}}>access control</span> </h2>
+              <h2><img src={logoabt4} className='about-img'></img> <span style={{marginLeft: '12px'}}>Investment</span><br></br><span style={{marginLeft:'69px'}}>Advice</span> </h2>
               <p className='p1'>
-              The NFC system mandates the officers to 
-              authenticate themselves before accessing 
-              sensitive areas or data. This ensures that 
-              only authorized personnels have access to 
-              specific resources.
+              Depending on your risk tolerance and financial objectives, 
+              we can suggest appropriate investing methods.
+              We will assist you in comprehending the benefits and 
+              risks associated with various investing alternatives, including stocks, bonds, and mutual funds.
               </p>
             </div>
           </div>
 
           <div className='abouter about-3 col-sm-4' data-aos='zoom-in-left'>
             <div className='about-text'>
-              <h2><img src={logoabt3} className='about-img'></img><span style={{marginLeft: '13px'}}> Data </span> <br></br> <span style={{marginLeft: '70px'}}>encryption</span> </h2>
+              <h2><img src={logoabt5} className='about-img'></img><span style={{marginLeft: '13px'}}> Retirement </span> <br></br> <span style={{marginLeft: '70px'}}>Planning</span> </h2>
               <p>
-              All admin-officer communications are 
-              encrypted to safeguard against unauthorized 
-              access. The system ensures that sensitive 
-              data stored about each officer remains 
-              confidential and secure.
+              To help you attain your retirement objectives,
+               we offer assistance in developing a retirement savings strategy, 
+               determining how much you need to save, and recommending suitable 
+               retirement accounts or investment vehicles.
               </p>
             </div>
           </div>

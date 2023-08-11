@@ -3,8 +3,8 @@
   src: url("../fonts/allura.ttf");
 } 
 @font-face {
-font-family: ananda;
-src: url("../fonts/ananda.ttf");
+font-family: Pacifico;
+src: url("../fonts/Pacifico-Regular.ttf");
 } 
 
 @font-face {
@@ -47,12 +47,19 @@ html body {
 }
 
 .nav-title-inner{
-  font-family: ananda !important;
+  font-family: Pacifico !important;
   color: #242333;
   font-size: 40px;
   position: relative;
   top: 5px;
   left: -15px;
+
+}
+
+.nav-title-inner img{
+  height: 10vh;
+  width: 8vw;
+  border-radius: 50px;
 }
 
 
@@ -130,7 +137,7 @@ html body {
 .banner-right{
   position: absolute;
   top: 58%;
-  left: 38%;
+  left: 59%;
   transform: translate(10%, -50%);
   text-align: center;
 }
@@ -166,6 +173,7 @@ html body {
 
 .banner-photo{
     width: 78%;
+  
 }
 
 .signupbtn, .loginbtn {
