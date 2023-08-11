@@ -118,7 +118,7 @@ exports.signup = async(req, res) => {
             gender:gender
         });
         await user.save();
-        res.json({message:'User added successfully', name : user.firstName});
+        res.json({ message: 'User added successfully', name: user.firstName, emailId: user.emailId });
     } catch(error){
         console.error(error);
         res.status(500).json({error: 'Error Signing up'});
