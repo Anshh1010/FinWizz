@@ -6,6 +6,7 @@ import Home from './components/dashboard/home.js';
 import './App.css';
 import AdminNameContext from './components/context/AdminNameContext';
 import AdminEmailContext from './components/context/adminContext.js';
+import Risk from './components/dashboard/risk.js';
 
 function App() {
   const [AdminEmail, setAdminEmail] = useState(localStorage.getItem('AdminEmail') || 'abc@xyz.com');
@@ -20,7 +21,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<MainHomepage />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/dashboard/*" element={<Home />} />
+                <Route path="/dashboard/home" element={<Home />} />
+                <Route path='/dashboard/risk' element={<Risk />}/>
               </Routes>
             </main>
           </AdminNameContext.Provider>

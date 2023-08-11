@@ -45,7 +45,7 @@ const AddUser = () => {
         };
 
         const url = `http://localhost:8000/v1/user/afterSignUp/${AdminEmail}`;
-        axios.post(url, data, config)
+        axios.patch(url, data, config)
        .then((response) => {
          console.log('Data sent successfully:', response.data);
          Swal.fire({

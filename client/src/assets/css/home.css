@@ -10,6 +10,7 @@
   display: flex;
   padding: 10px;
   font-family: 'Poppins', sans-serif !important;
+  float:right;
 }
 .dash > a {
   padding: 13px 20px 13px 20px;
@@ -23,7 +24,8 @@
   margin: 20px 20px;
   transition: background-color 0.3s;
   position: relative;
-  left: -40px;
+ 
+  
 }
 
 .dash > a:hover {

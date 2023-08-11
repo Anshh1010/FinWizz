@@ -8,9 +8,10 @@ import SignUp from '../auth/signUp.js';
 import AddUser from '../auth/addUser';
 import image1 from '../../assets/logos/logo1.png';
 import '../../assets/css/navbar.css';
+import {Link} from 'react-router-dom';
 
 const Home = () => {
-  const URL = 'http://localhost:3000/dashboard/home';
+  const URL = 'http://localhost:3000/dashboard';
   
 
   
@@ -19,15 +20,13 @@ const Home = () => {
   return (
     <>
       <div className='dash'>
-          <a href={`${URL}/#home`} className='jhk'>
-            STOCKS
-          </a>
-          <a href={`${URL}/#about`}>ETF</a>
-          <a href={`${URL}/#contact`}>MUTUAL FUNDS</a>
-          <a href={`${URL}/#adduser`} className='signupbtn'>
+          
+          <Link to="/dashboard/risk">Risk</Link>
+          <a href={`${URL}/home/#adduser`}>
             Add User
           </a>
           <AddUser />
+          <Link to="/" className='signupbtn'>Logout</Link>
       </div>
       
     </>
