@@ -9,15 +9,14 @@ const Banner = () => {
       <div className='banner-main-inner'>
         <div className='banner-left'>
           <div className='main-heading'>
-          <span className="hellospanner">Securely</span> tracking every move with <span className="hellospanner">NFC-based</span> police personnel monitoring
+          <span className="hellospanner">Strategic </span> Planning, Lasting Financial Security with <span className="hellospanner">FinWizz</span>
           </div>
 
           <div className='sub-heading'>
           <i class="fa-solid fa-quote-left" style={{color: '#01b0d3'}}></i>
-          &nbsp;Aarakshak is an NFC-based solution for securely 
-          tracking and authenticating police personnel in 
-          real time. It simplifies officer onboarding, duty 
-          assignment, and enables effective responses to emergencies.&nbsp; 
+          &nbsp;We provide personalized investment advice and portfolio management based on an individual's financial goals 
+          and risk tolerance. We offer cost-efficient, accessible, and convenient investment solutions making it a 
+          popular choice for many investors.&nbsp; 
           <i class="fa-solid fa-quote-right" style={{color: '#01b0d3'}}></i>
           </div>
 
@@ -30,7 +29,7 @@ const Banner = () => {
           </div>
         </div>
         <div className='banner-right'>
-          <img alt='' className='banner-photo' src={BannerPhoto} style={{borderRadius:100}}></img>
+          <img alt='' className='banner-photo' src={BannerPhoto}></img>
         </div>
       </div>
     </div>

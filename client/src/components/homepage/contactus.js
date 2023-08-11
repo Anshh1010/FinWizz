@@ -2,7 +2,7 @@
 import '../../assets/css/contact.css';
 import '../../assets/css/modal.css'
 import Newsletter from './newsletter';
-import digitalIndialogo from '../../assets/logos/Digital_India_logo.png'
+import image1 from '../../assets/logos/logo1.png';
 
 const ContactUs = () => {
     return ( 
@@ -12,7 +12,7 @@ const ContactUs = () => {
             <div className="contact-inner row">
                 <div className="contact-left col-sm-4">
 
-                    <div className='logotext'>AaarHak</div>
+                    <div className='logotext'> <img src={image1} /></div>
 
                     <div className='contact-left-text contact-right-links'>
                         <button className='contact-btns contact-btns1'>Know more!</button> &nbsp; <button className='contact-btns'>Get Updates!</button>
@@ -24,7 +24,7 @@ const ContactUs = () => {
                 <div className='col-sm-1'></div>
                 <div className="contact-right col-sm-5">
                     <div className='contact-right-heading'>
-                        Powered by <img src={digitalIndialogo} className='digitalIndia'></img><br /><br />
+                        {/* Powered by <img src={digitalIndialogo} className='digitalIndia'></img><br /><br /> */}
                     </div>
                     <div className='row'>
                         <div className='contact-linker-cont col-sm-6'>
@@ -44,7 +44,7 @@ const ContactUs = () => {
                 </center>
                 <div className='row'>
                     <div className='col-sm-4 social-media-buttons-contact'>
-                        <p>© Aarakshak | <font style={{color:'#10b0d3'}}> All rights reserved. </font></p>
+                        <p>© FinWizz | <font style={{color:'#10b0d3'}}> All rights reserved. </font></p>
                     </div>
                     <div className='col-sm-2'> </div>
                     <div className='col-sm-2'> </div>

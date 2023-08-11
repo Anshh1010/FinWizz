@@ -2,17 +2,20 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/modal.css';
 import '../../assets/css/form.css';
-import axios from 'axios';
 import Loader from '../../assets/images/Loader123.gif';
+import Swal from 'sweetalert2';
 import AdminEmail from '../context/adminContext';
 import AdminNameContext from '../context/AdminNameContext';
-import Swal from 'sweetalert2';
 
-const Login = () => {
-  const { AdminEmail } = useContext(AdminEmail);
+const SignUp = () => {
+
   const [emailId, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [otp, setOTP] = useState('');
+  const [cpassword, setCpassword] = useState('');
+  const [firstname, setfirstName] = useState('');
+  const [surname, setsurName] = useState('');
+  const [pnumber,setpNumber] = useState('');
+  const [gender,setGender]=useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const history = useNavigate(); 
@@ -27,12 +30,8 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleOTPChange = (e) => {
-    setOTP(e.target.value);
-  };
-
     
-  const GetOTP = async (e) => {
+  const SubmitForm = async (e) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
@@ -45,14 +44,14 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ emailId, password }),
+        body: JSON.stringify({ emailId, password, cpassword, firstname, surname, pnumber, gender }),
       });
 
       setIsLoading(false);
 
       if (!response.ok) {
         const errorData = await response.json();
-        setError(errorData.error || 'Login failed. Please check your credentials.');
+        setError(errorData.error || 'Sign Up failed.');
         return;
       }
 
@@ -62,57 +61,23 @@ const Login = () => {
       localStorage.setItem('AdminEmail',data.AdminEmail);
       localStorage.setItem('name',data.firstname);
 
+      history('/dashboard/home');
     } catch (error) {
-      setError('An error occurred during login. Please try again later.');
+      setError('An error occurred during sign up. Please try again later.');
       setIsLoading(false);
     }
   };
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  const handleFormSubmit =(e)=> {
-    e.preventDefault();
-
-    const data = {
-      emailId:AdminEmail,
-      otp:otp.toString(),
-    };
-    console.log(data)
-    const url_post = `https://violet-kitten-toga.cyclic.cloud/v1/admin/verify-otp`;
-
-    axios.post(url_post, data, config)
-    .then((response) => {
-      console.log('Data sent successfully:', response.data);
-      Swal.fire({
-        icon: (response.data.error) ? 'error' : 'success',
-        title: (response.data.error) ? 'Incorrect OTP' : response.data.message,
-        showConfirmButton: false,
-        timer:1500,
-      }
-      )
-      {(response.data.error) ? <></> : history('dashboard/home')}
-    } 
-    )
-    .catch((error) => {
-      console.error('Error sending data:', error);
-    });
-    
-  };
-
-
+  
   return (
     <>
-      <div id="login" className="modal-window">
+      <div id="signup" className="modal-window">
         <div>
           <a href="#" title="Close" className="modal-close">
             X
           </a>
-          <h1>LOGIN</h1>
-          <form onSubmit={handleFormSubmit}>
+          <h1>SIGN UP</h1>
+          <form onSubmit={SubmitForm}>
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -136,23 +101,67 @@ const Login = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="otp">OTP</label>
+              <label htmlFor="cpassword">Confirm Password</label>
               <input
                 type="password" 
-                name="OTP"
-                value={otp} minLength={6} maxLength={6} autoComplete="off"
-                onChange={handleOTPChange}
+                name="cpassword"
+                value={cpassword} 
+                autoComplete="off"
+                onChange={(e) => setCpassword(e.target.value)}
               />
             </div>
-            <Link to="" onClick={GetOTP}>GET OTP</Link>
+            <div className="form-group">
+              <label htmlFor="fname">First Name</label>
+              <input
+                type="text"
+                name="fname"
+                autoComplete="off"
+                required
+                value={firstname}
+                onChange={(e) => setfirstName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="sname">Surname</label>
+              <input
+                type="text"
+                name="sname"
+                autoComplete="off"
+                required
+                value={surname}
+                onChange={(e) => setsurName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="pnumber">Phone Number</label>
+              <input
+                type="tel"
+                name="pnumber"
+                autoComplete="off"
+                required
+                value={pnumber}
+                onChange={(e) => setpNumber(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="gender">Gender</label>
+              <input
+                type="text"
+                name="gender"
+                autoComplete="off"
+                required
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              />
+            </div>
             <div className="btn-sbmt-cont">
-              <button type="submit" value="Login" className="btn-sbmt" disabled={isLoading}>
+              <button type="submit" value="SignUp" className="btn-sbmt" disabled={isLoading}>
                 {isLoading ? (
                   <>
-                    <img src={Loader} className="loginbtn-loader" alt="Loader" /> Logging in...
+                    <img src={Loader} className="loginbtn-loader" alt="Loader" /> Signing In....
                   </>
                 ) : (
-                  'Login'
+                  'Sign Up'
                 )}
               </button>
             </div>
@@ -166,4 +175,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
