@@ -271,28 +271,28 @@ exports.getPerformance = async(req, res) => {
 exports.getRisk = async(req, res) => {
     const {risk} = req.body;
     if (risk > 15) {
-        data = {
-            'IRCTC': 0.283,
-            'INDIAN RAILWAY FINANCE CORPORATION': 0.302,
-            'SAGAR CEMENTS': 0.380,
-            'INFOSYS': 0.404,
-            'INDRAPRASTHA GAS LIMITED': 0.514,
-            'ITC': 0.601,
-            'HAVELLS': 0.624,
-            'GLAND PHARMACEUTICALS': 0.642,
-            'AXTEL': 0.671,
-            'RELIANCE INDUSTRIES': 0.885,
-            'VARUN BEVERAGES LIMITED': 0.933,
-            'DCM SHRIRAM INDUSTRIES LIMITED': 0.956,
-            'YAMUNA SYNDICATE LIMITED': 1.015,
-            'DISA INDIA LIMITED': 1.052,
-            'LARSEN AND TOUBRO': 1.062,
-            'ZEN TECHNOLOGIES': 1.145,
-            'ADANI PORTS': 1.293,
-            'TATA STEEL': 1.614,
-            'PIX TRANSMISSIONS': 1.634,
-            'TATAMOTORS': 2.099,
-        }
+      data = [
+            { name: 'IRCTC', beta: 0.283 },
+            { name: 'INDIAN RAILWAY FINANCE CORPORATION', beta: 0.302 },
+            { name: 'SAGAR CEMENTS', beta: 0.380 },
+            { name: 'INFOSYS', beta: 0.404 },
+            { name: 'INDRAPRASTHA GAS LIMITED', beta: 0.514 },
+            { name: 'ITC', beta: 0.601 },
+            { name: 'HAVELLS', beta: 0.624 },
+            { name: 'GLAND PHARMACEUTICALS', beta: 0.642 },
+            { name: 'AXTEL', beta: 0.671 },
+            { name: 'RELIANCE INDUSTRIES', beta: 0.885 },
+            { name: 'VARUN BEVERAGES LIMITED', beta: 0.933 },
+            { name: 'DCM SHRIRAM INDUSTRIES LIMITED', beta: 0.956 },
+            { name: 'YAMUNA SYNDICATE LIMITED', beta: 1.015 },
+            { name: 'DISA INDIA LIMITED', beta: 1.052 },
+            { name: 'LARSEN AND TOUBRO', beta: 1.062 },
+            { name: 'ZEN TECHNOLOGIES', beta: 1.145 },
+            { name: 'ADANI PORTS', beta: 1.293 },
+            { name: 'TATA STEEL', beta: 1.614 },
+            { name: 'PIX TRANSMISSIONS', beta: 1.634 },
+            { name: 'TATAMOTORS', beta: 2.099 }
+        ]
 
 
     } else {
