@@ -269,38 +269,45 @@ exports.getPerformance = async(req, res) => {
 };
 
 exports.getRisk = async(req, res) => {
-    res.json({
-        'ITC': 0.601,
-        'TATAMOTORS': 2.099,
-        'IRCTC': 0.283,
-        'INFOSYS': 0.404,
-        'RELIANCE INDUSTRIES': 0.885,
-        'ADANI PORTS': 1.293,
-        'TATA STEEL': 1.614,
-        'LARSEN AND TOUBRO': 1.062,
-        'INDRAPRASTHA GAS LIMITED': 0.514,
-        'VARUN BEVERAGES LIMITED': 0.933,
-        'HAVELLS': 0.624,
-        'SAGAR CEMENTS': 0.380,
-        'DCM SHRIRAM INDUSTRIES LIMITED': 0.956,
-        'ZEN TECHNOLOGIES': 1.145,
-        'DISA INDIA LIMITED': 1.052,
-        'PIX TRANSMISSIONS': 1.634,
-        'AXTEL': 0.671,
-        'YAMUNA SYNDICATE LIMITED': 1.015,
-        'INDIAN RAILWAY FINANCE CORPORATION': 0.302,
-        'GLAND PHARMACEUTICALS': 0.642
-    })
-}
-exports.enterRisk = async(req, res) => {
-    res.json({
-        options: ["EXCHANGE TRADED FUNDS", "FIXED DEPOSITS", "MUTUAL FUNDS", "BONDS"],
-        data: ["ETFs are investment funds that trade on stock exchanges. They hold a diversified portfolio of assets like stocks bonds, or commodities. ETFs offer easy diversification and liquidity, as they can be bought and sold throughout the trading day at market prices.They generally have lower expense ratios compared to mutual funds ",
-            "Mutual funds pool money from multiple investors to invest in a diversified portfolio of stocks, bonds, or other assets. They are managed by professional fund managers who make investment decisions on behalf of the investors. Mutual funds are priced once a day after the market closes, and you buy or sell at the net asset value (NAV) price. They offer diversification and are suitable for investors with different risk tolerances",
-            "FDs are fixed-term savings accounts offered by banks and financial institutions. You deposit a lump sum amount for a predetermined period at a fixed interest rate. FDs provide a stable and predictable return, but the returns are generally lower compared to riskier investments like stocks. They are considered low-risk investments because the principal amount is guaranteed by the bank.",
-            "Bonds are debt securities issued by governments, municipalities, or corporations to raise capital. When you buy a bond, you are essentially lending money to the issuer in exchange for periodic interest payments and the return of the principal amount at maturity. Bonds are generally considered lower-risk investments compared to stocks, and they provide a fixed income stream."
-        ],
-        data2: [" ETFs: The rate of return can vary widely depending on the underlying assets. Generally, ETFs that invest in stocks have higher potential returns, while those investing in bonds or other fixed-income assets have lower potential returns.", "Bonds: Bonds offer a fixed interest rate, so the rate of return is known at the time of investment. It's usually lower than potential stock market returns.", "Mutual Funds: Returns depend on the performance of the underlying assets. Equity mutual funds (investing in stocks) have higher potential returns, while bond funds have more moderate returns.", "FDs: FDs offer a fixed interest rate at the time of deposit, providing a predictable but often lower rate of return compared to other investment options. "],
-        data3: [" ETFs: Risk varies depending on the assets held. Stock-based ETFs have higher risk due to stock market volatility. Bond-based ETFs might have lower risk than stocks but higher risk than bonds.", " Bonds: Generally considered lower risk, especially government bonds. Corporate bonds carry some default risk, and bond prices can fluctuate based on interest rate changes.", "Mutual Funds: Risk depends on the fund's holdings. Equity funds have higher risk due to market volatility, while bond funds have varying levels of risk based on the types of bonds held.", "FDs: Considered low-risk due to the principal guarantee provided by the bank, making them a more conservative investment option."]
-    })
+    const risk = req.body;
+    if (risk > 15) {
+        data = {
+            'IRCTC': 0.283,
+            'INDIAN RAILWAY FINANCE CORPORATION': 0.302,
+            'SAGAR CEMENTS': 0.380,
+            'INFOSYS': 0.404,
+            'INDRAPRASTHA GAS LIMITED': 0.514,
+            'ITC': 0.601,
+            'HAVELLS': 0.624,
+            'GLAND PHARMACEUTICALS': 0.642,
+            'AXTEL': 0.671,
+            'RELIANCE INDUSTRIES': 0.885,
+            'VARUN BEVERAGES LIMITED': 0.933,
+            'DCM SHRIRAM INDUSTRIES LIMITED': 0.956,
+            'YAMUNA SYNDICATE LIMITED': 1.015,
+            'DISA INDIA LIMITED': 1.052,
+            'LARSEN AND TOUBRO': 1.062,
+            'ZEN TECHNOLOGIES': 1.145,
+            'ADANI PORTS': 1.293,
+            'TATA STEEL': 1.614,
+            'PIX TRANSMISSIONS': 1.634,
+            'TATAMOTORS': 2.099,
+        }
+
+
+    } else {
+        data = {
+            options: ["EXCHANGE TRADED FUNDS", "FIXED DEPOSITS", "MUTUAL FUNDS", "BONDS"],
+            data1: ["ETFs are investment funds that trade on stock exchanges. They hold a diversified portfolio of assets like stocks bonds, or commodities. ETFs offer easy diversification and liquidity, as they can be bought and sold throughout the trading day at market prices.They generally have lower expense ratios compared to mutual funds ",
+                "Mutual funds pool money from multiple investors to invest in a diversified portfolio of stocks, bonds, or other assets. They are managed by professional fund managers who make investment decisions on behalf of the investors. Mutual funds are priced once a day after the market closes, and you buy or sell at the net asset value (NAV) price. They offer diversification and are suitable for investors with different risk tolerances",
+                "FDs are fixed-term savings accounts offered by banks and financial institutions. You deposit a lump sum amount for a predetermined period at a fixed interest rate. FDs provide a stable and predictable return, but the returns are generally lower compared to riskier investments like stocks. They are considered low-risk investments because the principal amount is guaranteed by the bank.",
+                "Bonds are debt securities issued by governments, municipalities, or corporations to raise capital. When you buy a bond, you are essentially lending money to the issuer in exchange for periodic interest payments and the return of the principal amount at maturity. Bonds are generally considered lower-risk investments compared to stocks, and they provide a fixed income stream."
+            ],
+            data2: [" ETFs: The rate of return can vary widely depending on the underlying assets. Generally, ETFs that invest in stocks have higher potential returns, while those investing in bonds or other fixed-income assets have lower potential returns.", "Bonds: Bonds offer a fixed interest rate, so the rate of return is known at the time of investment. It's usually lower than potential stock market returns.", "Mutual Funds: Returns depend on the performance of the underlying assets. Equity mutual funds (investing in stocks) have higher potential returns, while bond funds have more moderate returns.", "FDs: FDs offer a fixed interest rate at the time of deposit, providing a predictable but often lower rate of return compared to other investment options. "],
+            data3: [" ETFs: Risk varies depending on the assets held. Stock-based ETFs have higher risk due to stock market volatility. Bond-based ETFs might have lower risk than stocks but higher risk than bonds.", " Bonds: Generally considered lower risk, especially government bonds. Corporate bonds carry some default risk, and bond prices can fluctuate based on interest rate changes.", "Mutual Funds: Risk depends on the fund's holdings. Equity funds have higher risk due to market volatility, while bond funds have varying levels of risk based on the types of bonds held.", "FDs: Considered low-risk due to the principal guarantee provided by the bank, making them a more conservative investment option."]
+        }
+
+    }
+    res.json(data)
+
 }
